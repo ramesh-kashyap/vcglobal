@@ -1,49 +1,27 @@
-<!-- main -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <div class="header-text-full">
-                <h3 class="ms-2 mb-0 mt-2">Referral Income</h3>
-            </div>
-        </div>
-    </div>
-    <div class="main row">
+<div class="content-body">
+    <div class="container-fluid">
+     
+      
+      <div class="row">
         <div class="col-12">
-            <!-- table -->
-            <div class="table-parent table-responsive mt-4">
-                <div class="table-search-bar">
-                    <div>
-                        <form action="{{ route('user.level-income') }}" method="get">
-                            <div class="row g-3 align-items-end">
-                                <div class="input-box col-lg-3 col-md-3 col-xl-3 col-12">
-                                    <input type="text" name="search" value="{{ @$search }}" class="form-control"
-                                        placeholder="Search for operation" />
-                                </div>
-
-                                <div class="input-box col-lg-3 col-md-3 col-xl-3 col-12">
-                                    <input type="text" name="remark" value="" class="form-control"
-                                        placeholder="Remark" />
-                                </div>
-
-
-
-                                <div class="input-box col-lg-3 col-md-3 col-xl-3 col-12">
-                                    <button class="btn-custom w-100" type="submit"><i class="fal fa-search"></i>
-                                        Search</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Referral Reveune Share</h4>
                 </div>
-                <table class="table table-striped mb-5">
-                    <thead>
-                        <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">amount</th>
-                            <th scope="col">operation</th>
-                            <th scope="col">payment system</th>
+                <div class="card-body">
+                    <div class="table-responsive">
+                   
+                        <table class="table table-responsive-md">
+                              <thead>
+                                      <tr>
+                                        <th>Sr No</th>
+                                           <th >Username</th>
+                            <th >Date</th>
+                            <th >amount</th>
+                            <th >operation</th>
+                            <th >payment system</th>
                         </tr>
-                    </thead>
+                               </thead>
                     <tbody>
 
                         <?php if(is_array($level_income) || is_object($level_income)){ ?>
@@ -52,7 +30,8 @@
                         $cnt = $level_income->perPage() * ($level_income->currentPage() - 1); ?>
                         @foreach ($level_income as $value)
                             <tr>
-
+                                  <td><?= $cnt += 1 ?></td>
+        <td> {{ $value->user_id_fk }} </td>
                                 <td data-label="Date">{{ date('D, d M Y H:i:s', strtotime($value->created_at)) }}</td>
                                 <td data-label="Amount">
                                     <span class="fontBold text-success">+{{ $value->comm }}
@@ -66,17 +45,20 @@
                         <?php }?>
 
                     </tbody>
-                </table>
-
-                {{ $level_income->withQueryString()->links() }}
-                              
-
+                        </table>
+                            {{$level_income->withQueryString()->links() }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-</div>
-</div>
-</div>
+    </div>
+  </div>
+<!-- 
+  <script>
+    function resetForm() {
+        // Redirect to index without any parameters
+        window.location.href = "{{ route('user.levels') }}";
+    }
+</script> -->
+  

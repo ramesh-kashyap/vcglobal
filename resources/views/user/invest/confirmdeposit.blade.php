@@ -11,9 +11,12 @@
 
                         <form method="POST" action="{{ route('user.fundActivation') }}">
                             @csrf
+
+                              <input type="hidden" name="amount" value="{{ $amount }}">
+                            <input type="hidden" name="paymentMode" value="{{ $paymentMode }}">
                             <div class="mb-3">
                                
-
+<!-- 
                                 <label class="form-label">Wallet Address   <svg  onclick="copyToClipboard()" class="copy-btn" width="20" height="20"
                                     viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
                                     style=""
@@ -41,9 +44,46 @@
                                             stroke="#fff" stroke-width="1.5" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </g>
-                                </svg></label>
+                                </svg>
+                            
+                            
+                            
+                            
+                            </label> -->
+
+                                                        @if($paymentMode == 'INR')
+
+
+                                            <div class="mb-3">
+                                <label class="form-label">Company Ac. Number</label>
+
+                                <input type="number" class="form-control form--control md-style"
+                                            name="account_no" readonly value="{{ $bankDetails->account_no}}" required>
+                            </div>
+                                            <div class="mb-3">
+                                <label class="form-label">IFSC Code</label>
+
+                            <input type="text" class="form-control form--control md-style"
+                                            name="ifsc_code" readonly value="{{ $bankDetails->ifsc_code }}" required>
+                            </div>
+                                            <div class="mb-3">
+                                <label class="form-label">Branch Name</label>
+ <input type="text" class="form-control form--control md-style"
+                                            name="branch_name" readonly value="{{ $bankDetails->branch_name }}" required>
+                            </div>
+                                            <div class="mb-3">
+                                <label class="form-label">Bank Name</label>
+
+                                 <input type="text" class="form-control form--control md-style"
+                                            name="bank_name" readonly value="{{ $bankDetails->bank_name }}">
+                            </div>
+
+      @elseif($paymentMode == 'usdtBep20')
+
+<div class="mb-3">
+                                <label class="form-label">Wallet Address</label>
                                 <input id="wallet_address1" type="text" class="form-control"
-                                value="{{ $address }}" readonly style="padding-right: 30px;">
+                                value="{{$wallet_address}}" readonly style="padding-right: 30px;">
 
                               
 
@@ -52,19 +92,40 @@
                             <div class="mb-3">
                                 <label class="form-label">Currency-</label>
 
-                             <input type="text" class="form-control" placeholder="Enter Withdraw Method" name="paymentMode" readonly value="{{($network=="USDT_TRX")? "USDT(TRC20)" :'USDT(BEP20)'}}">
-                                <input type="hidden" class="form-control"  name="amount"  value="{{ $amount }}">
+                             <input type="text" class="form-control" placeholder="Enter Withdraw Method" name="paymentMode" readonly value="{{($paymentMode)}}">
+                                <!-- <input type="hidden" class="form-control"  name="amount"  value="{{ $amount }}"> -->
                             </div>
                             <div class="mb-3">
                                 <h4>Deposit-</h4>
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ $address }}&format=png">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{$wallet_address}}&format=png">
 
                             </div>
+                             @endif
                             <div class="mb-3">
                                 <label class="form-label">Amount</label>
                                 <input type="text" class="form-control" readonly placeholder="" value="{{ $amount }}" name="amount" >
 
                             </div>
+                              <div class="mb-3">
+ @if($paymentMode == 'INR')
+                                <label class="form-label">Enter UTR No</label>
+
+  @elseif($paymentMode == 'usdtBep20')
+                                <label class="form-label">Transaction Hash</label>
+ @endif
+                                <input type="text" class="form-control form--control md-style"
+                                            placeholder="Transaction Hash" name="utrno" required>
+
+                            </div>
+                              <div class="mb-3">
+                                <label class="form-label">Upload Receipt</label>
+                                  <input type="file" class="form-control form--control md-style"
+                                            name="account" required accept=".jpg, .jpeg, .png">
+
+                            </div>
+ <button type="submit"
+                                                                          class="btn btn-primary">Deposit</button>
+
                         </form>
                     </div>
                 </div>

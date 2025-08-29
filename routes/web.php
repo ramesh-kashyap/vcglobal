@@ -91,7 +91,9 @@ Route::any('/dynamicupicallback', [App\Http\Controllers\Cron::class, 'dynamicupi
 
 
 Route::post('login', [App\Http\Controllers\Login::class, 'login'])->name('login');
+
 Route::any('logout', [App\Http\Controllers\Login::class, 'logout'])->name('logout');
+
 Route::get('forgot-password', [App\Http\Controllers\Login::class, 'forgot_password'])->name('forgot-password');
 Route::any('forgot_submit', [App\Http\Controllers\Login::class, 'forgot_password_submit'])->name('forgot_submit');
 Route::any('submitResetPassword', [App\Http\Controllers\Login::class, 'submitResetPassword'])->name('submitResetPassword');
@@ -202,6 +204,8 @@ Route::post('/confirm',  [App\Http\Controllers\UserPanel\WithdrawRequest::class,
 // Route::post('/WithdrawRequest', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'WithdrawRequest'])->name('user.Withdraw-Request');
 Route::post('/WithdrawRequestPrinciple', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'WithdrawRequestPrinciple'])->name('user.WithdrawRequestPrinciple');
 Route::get('/WithdrawHistory', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'WithdrawHistory'])->name('user.Withdraw-History');
+Route::get('/payment-ledger', [App\Http\Controllers\UserPanel\WithdrawRequest::class, 'payment'])->name('user.paymentledger');
+
 // end withdraw
 
 //team
@@ -217,15 +221,15 @@ Route::any('/UsrBinaryReport',[App\Http\Controllers\UserPanel\BinaryReport::clas
 //end team
 
 //bonus
-Route::get('/level-income', [App\Http\Controllers\UserPanel\Bonus::class, 'index'])->name('user.level-income');
-Route::get('/leadership-bonus', [App\Http\Controllers\UserPanel\Bonus::class, 'cashback_income'])->name('user.leadership-bonus');
-Route::get('/reward-bonus', [App\Http\Controllers\UserPanel\Bonus::class, 'reward_income'])->name('user.reward-bonus');
-Route::get('/roi-bonus', [App\Http\Controllers\UserPanel\Bonus::class, 'roi_income'])->name('user.roi-bonus');
+Route::get('/referral_income', [App\Http\Controllers\UserPanel\Bonus::class, 'index'])->name('user.referral_income');
+Route::get('/revenue_share', [App\Http\Controllers\UserPanel\Bonus::class, 'cashback_income'])->name('user.revenue_share');
+Route::get('/reward_income', [App\Http\Controllers\UserPanel\Bonus::class, 'reward_income'])->name('user.reward_income');
+Route::get('/team_reveune', [App\Http\Controllers\UserPanel\Bonus::class, 'roi_income'])->name('user.team_reveune');
 Route::get('/dailyIncentive', [App\Http\Controllers\UserPanel\Bonus::class, 'dailyIncentive'])->name('user.dailyIncentive');
 Route::get('/activitiesBonus', [App\Http\Controllers\UserPanel\Bonus::class, 'activitiesBonus'])->name('user.activitiesBonus');
 Route::get('/top_balance', [App\Http\Controllers\UserPanel\Bonus::class, 'top_balance'])->name('user.top_balance');
 
-Route::get('/gap-margin-bonus', [App\Http\Controllers\UserPanel\Bonus::class, 'gap_margin_bonus'])->name('user.gap-margin-bonus');
+Route::get('/salary-bonus', [App\Http\Controllers\UserPanel\Bonus::class, 'gap_margin_bonus'])->name('user.salary-bonus');
 //end bonus
 
 //tickets

@@ -13,6 +13,8 @@ use App\Models\Deactivate;
 use App\Models\Fundtransfer;
 use App\Models\PasswordReset;
 use App\Models\Debit;
+use App\Models\Payout;
+
 use Hexters\CoinPayment\CoinPayment;
 use App\Models\CoinpaymentTransaction;
 use Illuminate\Support\Facades\Validator;
@@ -24,6 +26,40 @@ use Hash;
 
 class WithdrawRequest extends Controller
 {
+
+
+ public function payment(Request $request)
+    {
+      $user=Auth::user();
+
+
+          $limit = $request->limit ? $request->limit : 10;
+            $status = $request->status ? $request->status : null;
+            $search = $request->search ? $request->search : null;
+            $notes = Payout::where('user_id',$user->id);
+            // dd($notes);
+            
+           if($search <> null && $request->reset!="Reset"){
+            $notes = $notes->where(function($q) use($search){         
+              $q->Where('ttime', 'LIKE', '%' . $search . '%')
+              ->orWhere('user_id_fk', 'LIKE', '%' . $search . '%')
+              ->orWhere('reffrial_income', 'LIKE', '%' . $search . '%')
+              ->orWhere('farming_income', 'LIKE', '%' . $search . '%');
+            });
+        
+      }
+
+            $notes = $notes->paginate($limit)
+                ->appends([
+                    'limit' => $limit
+                ]);
+        $this->data['deposit_list'] =$notes;
+        $this->data['page'] = 'user.withdraw.Withdrawledger';
+        return $this->dashboard_layout();
+    }
+
+
+
     public function index()
     {
         $user=Auth::user();
