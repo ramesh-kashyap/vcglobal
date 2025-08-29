@@ -312,11 +312,11 @@ Route::get('user-activation', [App\Http\Controllers\Admin\UserController::class,
 
 //bonusController
 Route::get('roi-bonus', [App\Http\Controllers\Admin\BonusController::class, 'roi_bonus'])->name('admin.roi-bonus');
-Route::get('level-bonus', [App\Http\Controllers\Admin\BonusController::class, 'level_bonus'])->name('admin.level-bonus');
-Route::get('booster-bonus', [App\Http\Controllers\Admin\BonusController::class, 'booster_bonus'])->name('admin.booster-bonus');
-Route::get('club-bonus', [App\Http\Controllers\Admin\BonusController::class, 'club_bonus'])->name('admin.club-bonus');
-Route::get('reward-bonus', [App\Http\Controllers\Admin\BonusController::class, 'reward_bonus'])->name('admin.reward-bonus');
-Route::get('activities-bonus', [App\Http\Controllers\Admin\BonusController::class, 'activities_bonus'])->name('admin.activities-bonus');
+Route::get('team-revenue-share', [App\Http\Controllers\Admin\BonusController::class, 'level_bonus'])->name('admin.team-revenue-share');
+Route::get('revenue-share', [App\Http\Controllers\Admin\BonusController::class, 'booster_bonus'])->name('admin.revenue-share');
+Route::get('referral-revenue-share', [App\Http\Controllers\Admin\BonusController::class, 'club_bonus'])->name('admin.referral-revenue-share');
+Route::get('reward-income', [App\Http\Controllers\Admin\BonusController::class, 'reward_bonus'])->name('admin.reward-income');
+Route::get('salary-income', [App\Http\Controllers\Admin\BonusController::class, 'activities_bonus'])->name('admin.salary-income');
 
 
 // withdraw
