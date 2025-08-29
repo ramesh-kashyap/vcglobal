@@ -8,7 +8,7 @@
 				<div class="row page-titles">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active"><a href="javascript:void(0)">Profit Summery </a></li>
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Referral Bonus</a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Referral Revenue Share</a></li>
 					</ol>
                 </div>
                 <!-- row -->
@@ -18,10 +18,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Referral Bonus</h4>
+                                <h4 class="card-title">Referral Revenue Share</h4>
                             </div>
                             <div class="card-body">
-                                 <form action="{{ route('admin.club-bonus') }}" method="GET">
+                                 <form action="{{ route('admin.referral-revenue-share') }}" method="GET">
                                         <div class="row">
                                             <div class="col-xl-4">
                                                 <div class="form-group mb-3">
@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="col-xl-2">
                                                 <div class="form-group mb-3">
-                                                    <a href="{{ route('admin.club-bonus') }}" style="padding: 0.6rem 2rem;"
+                                                    <a href="{{ route('admin.referral-revenue-share') }}" style="padding: 0.6rem 2rem;"
                                                         name="reset"
                                                         class="btn btn-outline-theme btn-lg d-block w-100 btn-primary"
                                                         value="Reset">Reset</a>

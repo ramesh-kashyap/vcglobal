@@ -16,7 +16,9 @@
 	<meta property="og:image" content="{{asset('')}}user/images/logo.svg">
 	<title>{{ siteName() }}</title>
     <!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="56x56" href="{{asset('')}}main/assets/images/fav-icon/Art.png">
+	<!-- <link rel="icon" type="image/png" sizes="56x56" href="{{asset('')}}main/assets/images/fav-icon/Art.png"> -->
+	<link rel="shortcut icon" href="{{asset('')}}asset/images/logo/favicon.ico">
+
 	<link href="{{asset('')}}user/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="{{asset('')}}user/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="{{asset('')}}user/css/style.css" rel="stylesheet">
