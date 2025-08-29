@@ -84,13 +84,29 @@ class User extends Authenticatable
     
     public function leadership_bonus()
     {
-        return $this->hasMany('App\Models\Income','user_id','id')->where('remarks','Leadership Income');
+        return $this->hasMany('App\Models\Income','user_id','id')->where('remarks','Referral Reveune Share');
     } 
         
-    public function level_bonus()
+    public function level_bonus_revenus()
     {
-        return $this->hasMany('App\Models\Income','user_id','id')->where('remarks','Referral Income');
+        return $this->hasMany('App\Models\Income','user_id','id')->where('remarks','Revenue Share');
     } 
+
+      public function level_bonus_team()
+    {
+        return $this->hasMany('App\Models\Income','user_id','id')->where('remarks','Team Reveune Share');
+    } 
+      
+      public function level_bonus_reward()
+    {
+        return $this->hasMany('App\Models\Income','user_id','id')->where('remarks','Reward Income');
+    } 
+      
+      public function level_bonus_salary()
+    {
+        return $this->hasMany('App\Models\Income','user_id','id')->where('remarks','Salary Income');
+    } 
+      
       
     public function trading_profit()
     {

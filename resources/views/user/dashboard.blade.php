@@ -33,12 +33,12 @@
               <div class="col-xl-3 col-xxl-3 col-sm-6">
                   <div class="card overflow-hidden">
                       <div class="social-graph-wrapper bg-primary">
-                          <span class="fs-18">Funding Wallet</span>
+                          <span class="fs-18">Team Business</span>
                       </div>
                       <div class="row">
                           <div class="pt-3 pb-3 ps-0 pe-0 text-center ">
-                              <h4 class="m-1"><span class="counter fs-30">{{ currency() }}
-                                      {{ number_format(Auth::user()->u_credits, 2) }}
+                              <h4 class="m-1"><span class="counter fs-30">   {{ currency() }}
+                                                          {{ number_format($totalBuniess, 2) }}
                                   </span></h4>
                           </div>
                       </div>
@@ -61,12 +61,11 @@
               <div class="col-xl-3 col-xxl-3 col-sm-6">
                   <div class="card overflow-hidden">
                       <div class="social-graph-wrapper bg-primary">
-                          <span class="fs-18">Refer Wallet</span>
+                          <span class="fs-18">Total Deposit</span>
                       </div>
                       <div class="row">
                           <div class="pt-3 pb-3 ps-0 pe-0 text-center ">
-                              <h4 class="m-1"><span class="counter fs-30"> {{ currency() }}
-                                      {{ number_format(Auth::user()->u_ref, 2) }}
+                              <h4 class="m-1"><span class="counter fs-30"> {{ currency() }} {{number_format(Auth::user()->investment->sum('amount'),2)}}
                                   </span></h4>
                           </div>
                       </div>
@@ -167,11 +166,11 @@
                                                           </div>
                                                       </div>
                                                   </div>
-                                                  <button type="button" class="btn btn-rounded btn-primary"
-                                                      data-bs-toggle="modal" data-bs-target="#Withdraw">Withdraw
-                                                      Funds</button>
+                                                <a href="{{ route('user.BankDetail') }}" class="btn btn-rounded btn-primary">
+Bank Details
+</a>
 
-                                                  <div class="modal fade" id="Withdraw" tabindex="-1"
+                                                  <div class="modal fade" id="BankDetail" tabindex="-1"
                                                       role="dialog" aria-labelledby="DepositLabel"
                                                       aria-hidden="true">
                                                       <div class="modal-dialog" role="document">
@@ -273,12 +272,13 @@
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
-                                                      <span class="fs-15 d-block mb-1 text-primary">Funding Wallet:
+                                                      <span class="fs-15 d-block mb-1 text-primary">Available Balance
                                                     
                                                       </span>
                                                       <span class="fs-15 text-black">
-                                                              {{ currency() }}
-                                                          {{ number_format(Auth::user()->u_credits, 2) }}
+                                                         {{ currency() }}
+                                                         {{ number_format(Auth::user()->available_balance(), 2) }}
+                                                       
                                                       </span>
                                                   </div>
                                               </div>
@@ -302,8 +302,8 @@
                                                   <div class="media-body">
                                                       <span class="fs-15 d-block mb-1 text-primary">Revenue Share
                                                           </span>
-                                                      <span class="fs-15 text-black">Refer Wallet: {{ currency() }}
-                                                          {{ number_format(Auth::user()->u_ref, 2) }}
+                                                      <span class="fs-15 text-black"> {{ currency() }}
+                                                          {{ number_format(Auth::user()->level_bonus_revenus->sum("comm"), 2) }}
                                                       </span>
                                                   </div>
 
@@ -316,7 +316,7 @@
                                                   <div class="media-body">
                                                       <span class="fs-15 d-block mb-1 text-primary">Team Reveune Share</span>
                                                       <span class="fs-15 text-black"> {{ currency() }}
-                                                          {{ number_format(Auth::user()->level_bonus->sum("comm"), 2) }}
+                                                          {{ number_format(Auth::user()->level_bonus_team->sum("comm"), 2) }}
                                                       </span>
                                                   </div>
 
@@ -329,7 +329,7 @@
                                                   <div class="media-body">
                                                       <span class="fs-15 d-block mb-1 text-primary">Reward Income</span>
                                                       <span class="fs-15 text-black"> {{ currency() }}
-                                                          {{ number_format(Auth::user()->level_bonus->sum("comm"), 2) }}
+                                                          {{ number_format(Auth::user()->level_bonus_reward->sum("comm"), 2) }}
                                                       </span>
                                                   </div>
 
@@ -342,7 +342,7 @@
                                                   <div class="media-body">
                                                       <span class="fs-15 d-block mb-1 text-primary">Referral Reveune Share</span>
                                                       <span class="fs-15 text-black"> {{ currency() }}
-                                                          {{ number_format(Auth::user()->sponsorship_bonus->sum('comm'), 2) }}
+                                                          {{ number_format(Auth::user()->level_bonus_salary->sum('comm'), 2) }}
                                                       </span>
                                                   </div>
 
