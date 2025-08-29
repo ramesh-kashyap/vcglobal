@@ -35,6 +35,14 @@ class FrontController extends Controller
     {
         return view('main.markets');
     }
+        public function education()
+    {
+        return view('main.education');
+    }
+        public function support()
+    {
+        return view('main.support');
+    }
 
     public function team()
     {

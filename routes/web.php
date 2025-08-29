@@ -111,6 +111,8 @@ Route::get('/services', [App\Http\Controllers\FrontController::class, 'services'
 Route::get('/contact-us', [App\Http\Controllers\FrontController::class, 'contact'])->name('contact-us');
 Route::get('/privacy', [App\Http\Controllers\FrontController::class, 'privacy'])->name('privacy');
 Route::get('/markets', [App\Http\Controllers\FrontController::class, 'markets'])->name('markets');
+Route::get('/education', [App\Http\Controllers\FrontController::class, 'education'])->name('education');
+Route::get('/support', [App\Http\Controllers\FrontController::class, 'support'])->name('support');
 Route::get('/team', [App\Http\Controllers\FrontController::class, 'team'])->name('team');
 Route::get('/term-candition', [App\Http\Controllers\FrontController::class, 'termcandition'])->name('term-candition');
 Route::get('/plan', [App\Http\Controllers\FrontController::class, 'plan'])->name('plan');
