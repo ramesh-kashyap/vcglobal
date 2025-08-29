@@ -5,7 +5,7 @@
             <div class="row p-1 py-3 d-flex align-items-center justify-content-between">
                 <div class="col-xl-12 col-lg-12 col-sm-6 text-center mb-3">
                     <h3 class="text-success" style="visibility: visible">
-                         Megabyte Bot is activated and autotrading is on.
+                         Vcglobal Bot is activated and autotrading is on.
                     </h3>
                 </div>
             </div>
@@ -53,9 +53,9 @@
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-xl-6"><img style="max-width: 300px;" src="{{ asset('')}}user/images/aibot10.gif " class="img-fluid"></div>
                                                 <div class="col-xl-6">
-                                                    <h3 class="text-dark"> Kilobyte</h3>
+                                                    <h3 class="text-dark"> Live Trading</h3>
                                                     <h5 class="counter text-danger mx-2" style="visibility: visible">
-                                                        50$ TO 999$
+                                                        10000 TO Unlimited
                                                     </h5>
                                                 </div>
                                             </div>
@@ -63,9 +63,9 @@
                                         <div class="col-xl-6 col-12 pt-3 text-center">
                                             <span class="text-dark">Generates Daily</span>
                                             <h4 class="counter text-success mx-2 mb-1" style="visibility: visible">
-                                                0.3 To 1.5% Returns
+                                                <!-- 0.3 To 1.5% Returns -->
                                             </h4>
-                                            <p> Kilobyte offers a lot of great
+                                            <p> Vcglobal offers a lot of great
                                                 features, such as AI Trend
                                                 Forecasting.
                                                 The platform’s AI trend prediction
@@ -74,7 +74,7 @@
                                                 It includes a confidence level so you
                                                 can see the odds of success
                                                 for each predicted trend.                <br>
-                                                <span class="text-dark">Bot Activation Fees: <span class="text-danger">5%</span>
+                                                <!-- <span class="text-dark">Bot Activation Fees: <span class="text-danger">5%</span> -->
                                                 </span>
                                             </p>
                                         </div>
@@ -84,7 +84,7 @@
                     </div>
 
                     <!-- Second AI bot section -->
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                         <div class="row mb-3">
                             <div class="col-lg-12">
                                 <div class="card mb-xl-0 my-4">
@@ -124,10 +124,10 @@
                                     </div>
                                 </div>
                             </div>                        </div>
-                    </div>
+                    </div> -->
 
                     <!-- Third AI bot section -->
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                         <div class="row mb-3">
                             <div class="col-lg-12">
                                 <div class="card mb-xl-0 my-4">
@@ -156,10 +156,10 @@
                                     </div>
                                 </div>
                             </div>                        </div>
-                    </div>
+                    </div> -->
 
                     <!-- Fourth AI bot section -->
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                         <div class="row mb-3">
                             <div class="col-lg-12">
                                 <div class="card mb-xl-0 my-4">
@@ -188,18 +188,18 @@
                                     </div>
                                 </div>
                             </div>                        </div>
-                    </div>
+                    </div> -->
 
                 </div>
                 <!-- Carousel controls -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#aiBotsCarousel" data-bs-slide="prev">
+                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#aiBotsCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#aiBotsCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                </button>
+                </button> -->
             </div>
         </div>
     </div>

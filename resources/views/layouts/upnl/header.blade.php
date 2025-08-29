@@ -236,12 +236,12 @@
 						</a>
                         
                     </li>
-                    <li><a   href="{{ route('user.w_details') }}" aria-expanded="false">
+                    <!-- <li><a   href="{{ route('user.w_details') }}" aria-expanded="false">
                         <i class="flaticon-381-list"></i>
 						<span class="nav-text">Withdrawal Info</span>
 						</a>
                         
-                    </li>
+                    </li> -->
                     
                     <li><a class="has-arrow ai-icon"  href="javascript:void(0);" aria-expanded="false">
 						<i class="fas fa-check-circle status"></i>
