@@ -13,7 +13,7 @@
                 <span id="date"></span>
             </div>
         </div>
-        <div class="picture" style="background-image: url({{asset('')}}assets/c20a81c4/img/bginvest.png);"></div>
+        <!-- <div class="picture" style="background-image: url({{asset('')}}assets/c20a81c4/img/bginvest.png);"></div> -->
     </div>
 </div>
 <div class="investPage">
