@@ -71,214 +71,168 @@ if ($allResult)
 
 
 
-function manage_trade() 
-{
- $trade =\DB::table('contract')->where('c_status',1)->orderBy('c_time','DESC')->first();
-$status = false;
-$tcoins_arr  = coinrates();
-if (!$trade) {
-  $status = true;
-}
-if ($status == true) {
-  $data = array(
-    'status' => $status,
-  );
-} else {
+// function manage_trade() 
+// {
+//  $trade =\DB::table('contract')->where('c_status',1)->orderBy('c_time','DESC')->first();
+// $status = false;
+// $tcoins_arr  = coinrates();
+// if (!$trade) {
+//   $status = true;
+// }
+// if ($status == true) {
+//   $data = array(
+//     'status' => $status,
+//   );
+// } else {
 
-  $btc = "";
-  $side = $trade->c_buy;
-  $entry_price = round($tcoins_arr[$trade->c_name],5);
-  $position = $trade->qty;
+//   $btc = "";
+//   $side = $trade->c_buy;
+//   $entry_price = round($tcoins_arr[$trade->c_name],5);
+//   $position = $trade->qty;
 
-  $action = "incre";
-  $profit = $position + rand(1, 21);
-  $entry_price = $entry_price + rand(0.1 ,0.9);
-  if ($profit % 2 != 0) {
-    $action = "decre";
-    $profit = $position - rand(1, 11);
-    $entry_price = $entry_price - rand(0.1 ,0.9);
-  }
+//   $action = "incre";
+//   $profit = $position + rand(1, 21);
+//   $entry_price = $entry_price + rand(0.1 ,0.9);
+//   if ($profit % 2 != 0) {
+//     $action = "decre";
+//     $profit = $position - rand(1, 11);
+//     $entry_price = $entry_price - rand(0.1 ,0.9);
+//   }
 
-  $data = array(
-    'profit' => $profit,
-    'action' => $action,
-    'btc_price' => $entry_price,
-    'status' => $status,
-  );
-}
+//   $data = array(
+//     'profit' => $profit,
+//     'action' => $action,
+//     'btc_price' => $entry_price,
+//     'status' => $status,
+//   );
+// }
 
-// Encode the object as JSON
-$jsonData = json_encode($data);
-header('Content-Type: application/json');
-echo  $jsonData;
+// // Encode the object as JSON
+// $jsonData = json_encode($data);
+// header('Content-Type: application/json');
+// echo  $jsonData;
 
-}
+// }
 
 
-public function stop_trade(){
-  $contracts = Contract::where('c_status', 1)->get();
+// public function stop_trade(){
+//   $contracts = Contract::where('c_status', 1)->get();
 
-  foreach ($contracts as $contract) {
-    $user = User::where('id', $contract->user_id)->first();
+//   foreach ($contracts as $contract) {
+//     $user = User::where('id', $contract->user_id)->first();
 
-    if ($user) {
-        $u_str = $user->u_strategy;
+//     if ($user) {
+//         $u_str = $user->u_strategy;
 
-        // Update profit
-            if($contract->decision=="1")
-            {
-              $updated_p = $user->u_profit + $contract->profit;
-            $user->u_profit = $updated_p;
-            $user->save();   
-            }
-            else
-            {
-            $updated_p = $user->u_profit;
-            }
-        // Update contract status and profit
-        Contract::where('c_id',$contract->c_id)->update(['c_status' => '-1','c_new'=>$updated_p]);
-        // $contract->save();
+//         // Update profit
+//             if($contract->decision=="1")
+//             {
+//               $updated_p = $user->u_profit + $contract->profit;
+//             $user->u_profit = $updated_p;
+//             $user->save();   
+//             }
+//             else
+//             {
+//             $updated_p = $user->u_profit;
+//             }
+//         // Update contract status and profit
+//         Contract::where('c_id',$contract->c_id)->update(['c_status' => '-1','c_new'=>$updated_p]);
+//         // $contract->save();
 
-        $ref = $contract->c_ref;
-        $user_id = $user->id;
-       if($contract->decision=="1")
-       {
-         add_level_income($user_id,$ref);   
-       }
+//         $ref = $contract->c_ref;
+//         $user_id = $user->id;
+//        if($contract->decision=="1")
+//        {
+//          add_level_income($user_id,$ref);   
+//        }
        
-    }
-}
+//     }
+// }
 
 
-}
+// }
 
 
 public function generate_roi()
-{
+{  
+    $allResult = Investment::where('status', 'Active')
+        ->where('roiCandition', 0)
+        ->get();
 
+    if ($allResult) {
+        foreach ($allResult as $value) {
 
-  // auto trade script
+            $userID      = $value->user_id;
+            $joining_amt = $value->amount;
 
-  $factor = 0;
-  $decision = true;
+            $userDetails = User::where('id', $userID)
+                ->where('active_status', 'Active')
+                ->first();
 
-  $trade_index = \DB::table('variables')->where('v_id',11)->first()->trade_index;
-  // dd($trade_index);
-  if($trade_index < 0 ){
-    exit();
-   }elseif($trade_index == 15) {
-      \DB::table('variables')->where('v_id',11)->update(['trade_index' => 0]);
-     $trade_index = 0;
-   }
-   if ($trade_index == 4 || $trade_index == 7 || $trade_index == 11) {
-    $decision=false;
-  }
-  $factor_arr = array(
-    500, 400, 300, 250, 554,
-    500, 300, 900, 300, 400,
-    500, 320, 150, 500, 400
-  );
-  $factor = $factor_arr[$trade_index];
-  $trade_index++;
-  \DB::table('variables')->where('v_id',11)->update(['trade_index' => $trade_index]);
-  $tcoins_arr =coinrates();
-  // dd($tcoins_arr);
-$allResult=User::where('active_status','Active')->where('u_strategy','>=',50)->get();
-$todays=Date("Y-m-d");
-$day=Date("l");
-if ($allResult)
-{
- foreach ($allResult as $key => $value)
- {
+            if ($userDetails) {
+                // Already earned income from this investment
+                $total_profit = Income::where('user_id', $userID)
+                    ->where('invest_id', $value->id)
+                    ->where('remarks', 'Revenue Share')
+                    ->sum("comm");
 
-  $userID=$value->id;
-   $u_str = $value->u_strategy;
+                $total_get = $joining_amt * 200 / 100;  // Max 200% income allowed
 
-   $idx = -1;
-   if ($u_str >= 50 && $u_str <= 999) {
-     $idx = 1;
-   } elseif ($u_str >= 1000 && $u_str <= 4999) {
-     $idx = 2;
-   } elseif ($u_str >= 5000 && $u_str <= 9999) {
-     $idx = 3;
-   } elseif ($u_str >= 9999) {
-     $idx = 4;
-   }
+                // 6% monthly ROI → daily
+                $roi = ($joining_amt * 6.50) / 100;  
+                $roi = round($roi / 30, 4);         
 
-     // Trading Section Starts
+                // Cap check (avoid extra income after max limit)
+                $n_m_t = $total_get - $total_profit;
+                if ($roi > $n_m_t) {
+                    $roi = $n_m_t;
+                }
 
-     $zero_arr = array("eth", "doge", "btc", "btc", "bnb", "btc", "eth", "eth", "btc", "btc", "bnb", "btc", "eth", "btc", "eth", "car");
-     $v_index = \DB::table('variables')->where('v_id',11)->first()->v_index;
-     $trade = "Buy";
-    if (isEven($v_index)) {
-      $trade = "Sell";
+                // Give ROI only if within max limit
+                if ($total_profit < $total_get && $roi > 0) {
+                    $today = date("Y-m-d");
+
+                    // Check if today's ROI already credited
+                    $todayRoiCount = Income::where('invest_id', $value->id)
+                        ->where('remarks', 'Revenue Share')
+                        ->where('ttime', $today)
+                        ->count();
+
+                    if (!$todayRoiCount) {
+                        // Insert ROI record
+                        $data = [
+                            'remarks'    => 'Revenue Share',
+                            'comm'       => $roi,
+                            'amt'        => $joining_amt,
+                            'invest_id'  => $value->id,
+                            'level'      => 1,
+                            'ttime'      => $today,
+                            'user_id_fk' => $userDetails->username,
+                            'user_id'    => $userDetails->id,
+                        ];
+
+                        Income::firstOrCreate(
+                            [
+                                'remarks'   => 'Revenue Share',
+                                'ttime'     => $today,
+                                'user_id'   => $userID,
+                                'invest_id' => $value->id
+                            ],
+                            $data
+                        );
+
+                        // 👉 call your level income function
+add_level_income($userDetails->id, $roi);
+                    }
+                } else {
+                    // Stop ROI once max limit is reached
+                    Investment::where('id', $value->id)
+                        ->update(['roiCandition' => 1]);
+                }
+            }
+        }
     }
-    $new_index = $v_index + 1;
-    \DB::table('variables')->where('v_id',11)->update(['v_index' => $new_index]);
-    if ($v_index == 16) {
-      \DB::table('variables')->where('v_id',11)->update(['v_index' => 0]);
-      $v_index = 1;
-    }
-  // Got Symbol
-  $sym = $zero_arr[$v_index];
-  $bots = \DB::table('machines')->where('m_id',$idx)->first();
-  $bot_name = $bots->m_name;
-  $percent = $bots->m_return/ $factor;
-  $percent = number_format($percent, 5, '.', '');
-  $usd = ($u_str * 0.7);
-  $buy_price_btc = number_format($tcoins_arr[$sym], 5, '.', '');
-  $sell_price_btc = number_format($tcoins_arr[$sym] + ($tcoins_arr[$sym] * $percent), 5, '.', '');
-  $buy_price_usd = $usd / $buy_price_btc; //qty
-  $trade_profit = $usd * ($percent);
-  $ref = ($u_str * 0.3) * ($percent);
-  $currentDateTime = date("Y-m-d H:i:s");
-  if ($decision) {
-    if ($trade == "Buy") {
-
-      $sell_price_btc = number_format($tcoins_arr[$sym], 5, '.', '');
-      $buy_price_btc = number_format($tcoins_arr[$sym] - ($tcoins_arr[$sym] * $percent), 5, '.', '');
-      $buy_price_usd = $usd / $buy_price_btc; //qty
-      $sell_price_usd = $usd / $sell_price_btc;
-      \DB::table('contract')->insert(['user_id'=> $userID,'trade'=>$trade,'c_bot' => $bot_name,'c_buy'=>$buy_price_btc,'c_sell'=>$sell_price_btc,'qty'=>$buy_price_usd,'profit'=>$trade_profit,'c_name'=>$sym,'c_status'=>1,'c_ref'=>$ref,'c_time'=>$currentDateTime]);
-
-    }
-    else
-    {
-      \DB::table('contract')->insert(['user_id'=> $userID,'trade'=>$trade,'c_bot' => $bot_name,'c_buy'=>$sell_price_btc,'c_sell'=>$buy_price_btc,'qty'=>$buy_price_usd,'profit'=>$trade_profit,'c_name'=>$sym,'c_status'=>1,'c_ref'=>$ref,'c_time'=>$currentDateTime]);
-
-    }
-
-  }
-  else
-  {
-    if ($trade == "Buy")
-     {
-      $sell_price_btc = number_format($tcoins_arr[$sym], 5, '.', '');
-      $buy_price_btc = number_format($tcoins_arr[$sym] - ($tcoins_arr[$sym] * $percent), 5, '.', '');
-      $buy_price_usd = $usd / $buy_price_btc; //qty
-      $sell_price_usd = $usd / $sell_price_btc;
-      \DB::table('contract')->insert(['user_id'=> $userID,'trade'=>$trade,'c_bot' => $bot_name,'c_buy'=>$sell_price_btc,'c_sell'=>$buy_price_btc,'qty'=>$buy_price_usd,'profit'=>$trade_profit,'c_name'=>$sym,'c_status'=>1,'c_ref'=>$ref,'c_time'=>$currentDateTime,'decision'=>"-1"]);
-     }
-     else
-     {
-      \DB::table('contract')->insert(['user_id'=> $userID,'trade'=>$trade,'c_bot' => $bot_name,'c_buy'=>$buy_price_btc,'c_sell'=>$sell_price_btc,'qty'=>$buy_price_usd,'profit'=>$trade_profit,'c_name'=>$sym,'c_status'=>1,'c_ref'=>$ref,'c_time'=>$currentDateTime,'decision'=>"-1"]);
-
-     }
-  }
-
- }
- 
 }
-
-
-
-
-}
-
-
-
-
-
 
 
 

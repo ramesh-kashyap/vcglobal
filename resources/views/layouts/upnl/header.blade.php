@@ -79,7 +79,7 @@
 				
 				
 			
-					<img src="{{asset('user/images/logo.svg') }}" style="width:100%" alt="" id="user_button" >
+					<img src="{{asset('user/images/vcglobal-new.png') }}" style="width:100%" alt="" id="user_button" >
    				
 				
             </a>
@@ -172,13 +172,13 @@
 						</a>
                         
                     </li>
-					<li>
+					<!-- <li>
 						<a   href="{{ route('user.wallets') }}" aria-expanded="false">
 							<i class="flaticon-381-id-card"></i>
 							<span class="nav-text">Wallets Overview</span>
 						</a>
                        
-                    </li>
+                    </li> -->
 					{{-- <li>
 						<a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
 							<i class="flaticon-381-id-card-4"></i>
@@ -213,6 +213,21 @@
                             <li><a href="{{ route('user.tradehistory') }}">Trade History</a></li>
                         </ul>
                     </li>
+ <li><a class="has-arrow ai-icon"  href="javascript:void(0);" aria-expanded="false">
+						<i class="flaticon-381-id-card-4"></i>
+						<span class="nav-text">Profit Summary</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('user.team_reveune') }}">Team Reveune Share</a></li>
+                            <li><a href="{{ route('user.referral_income') }}">Referral Reveune Share</a></li>
+                            <li><a href="{{ route('user.revenue_share') }}">Revenue Share</a></li>
+                            <li><a href="{{ route('user.salary-bonus') }}">Salary Income</a></li>
+                             <li><a href="{{ route('user.reward_income') }}">Reward Income</a></li>
+
+
+                        </ul>
+                    </li>
+
                     <li><a   href="{{ route('user.aibots') }}" aria-expanded="false">
 <i class="fa fa-user" aria-hidden="true"></i>
 						<span class="nav-text">AI Trading Bots</span>
@@ -234,6 +249,8 @@
                             <li><a href="{{ route('user.w_status') }}">Withdrawal Status</a></li>
                             <li><a href="{{ route('user.depositstatus') }}">Deposit Status</a></li>
                             <li><a href="{{ route('user.ticketstatus') }}">Ticket Status</a></li>
+                            <li><a href="{{ route('user.paymentledger') }}">Payment Ledger</a></li>
+
                             
                         </ul>
                     </li>

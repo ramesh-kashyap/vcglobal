@@ -494,57 +494,21 @@ return true;
                       $pp=0;
                        if($sp_status=="Active")
                        {
-                         if($cnt==1 && $Sposnor_cnt>=1)
+                         if($cnt==1)
                           {
-                            $pp= $amount*5;
+                            $pp= $amount*15;
 
-                          } if($cnt==2 && $Sposnor_cnt>=2)
+                          } if($cnt==2)
                           {
-                            $pp= $amount*3;
+                            $pp= $amount*7.5;
 
-                          } if($cnt==3 && $Sposnor_cnt>=4)
+                          } if($cnt>=3 && $cnt<=10)
                           {
-                            $pp= $amount*2;
+                            $pp= $amount*3.75;
 
                           }  
                           
-                          if($cnt==4 && $Sposnor_cnt>=6)
-                          {
-                            $pp= $amount*1;
-
-                          }  
-                          if($cnt==5 && $Sposnor_cnt>=8)
-                          {
-                            $pp= $amount*1;
-
-                          }  
-                          if($cnt==6 && $Sposnor_cnt>=10)
-                          {
-                            $pp= $amount*1;
-
-                          }  
-                          if($cnt==7 && $Sposnor_cnt>=13)
-                          {
-                            $pp= $amount*1;
-
-                          }  
-                          if($cnt==8 && $Sposnor_cnt>=17)
-                          {
-                            $pp= $amount*1;
-
-                          }
-                          if($cnt==9 && $Sposnor_cnt>=20)
-                          {
-                            $pp= $amount*0.5;
-
-                          }  
-                          if($cnt==10 && $Sposnor_cnt>=20)
-                          {
-                            $pp= $amount*0.5;
-
-                          }  
-
-                         
+                      
                         }
                         else
                         {
@@ -564,7 +528,7 @@ return true;
                             'user_id_fk' =>$Sposnor_status->username,
                             'amt' => $amt,
                             'comm' => $pp,
-                            'remarks' =>'Referral Income',
+                            'remarks' =>'Team Reveune Share',
                             'level' => $cnt,
                             'rname' => $rname,
                             'fullname' => $fullname,
@@ -665,7 +629,6 @@ return true;
 function add_direct_income($id,$amt)
 {
 
-  //$user_id =$this->session->userdata('user_id_session')
 $data = User::where('id',$id)->orderBy('id','desc')->first();
 
 $user_id = $data->username;
@@ -718,24 +681,17 @@ $user_mid = $data->id;
               $spid = @$Sposnor_status->id;
         
                  $max_income=$total_get;
-        //      $n_m_t = $max_income - $total_profit;
-        //   // dd($total_received);
-        //      if($pp >= $n_m_t)
-        //      {
-        //          $pp = $n_m_t;
-        //      }  
-             
+      
 
               $user_id_fk=$sponsor;
-            //   print_r($user_id_fk);die;
-            //   echo $cnt." ".$spid." ".$pp."<br>";dd();
+           
               if($spid>0 && $pp>0){
                  $data = [
                 'user_id' => $user_mid,
                 'user_id_fk' =>$Sposnor_status->username,
                 'amt' => $amt,
                 'comm' => $pp,
-                'remarks' => 'Direct Referral Income',
+                'remarks' => 'Referral Reveune Share',
                 'level' => $cnt,
                 'rname' => $rname,
                 'fullname' => $fullname,
@@ -745,7 +701,7 @@ $user_mid = $data->id;
             $user_data =  Income::Create($data);
 
 
-            User::where('id',$Sposnor_status->id)->update(['u_ref'=>$Sposnor_status->u_ref+$pp]);
+            // User::where('id',$Sposnor_status->id)->update(['u_ref'=>$Sposnor_status->u_ref+$pp]);
 
        }
 

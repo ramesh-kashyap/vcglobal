@@ -161,45 +161,7 @@ class DepositController extends Controller
          }
          add_direct_income($user->user_id,$user->amount);
          
-           $amount = $user->amount;
-           
-           User::where('id',$user->user_id)->update(['u_credits'=>$users->u_credits+$amount]);
-           
-             $plan ='BEGINNER';
-             if ($amount>=100 && $amount<=200) 
-               {
-                $plan ='BEGINNER';
-               }
-               elseif($amount>=400 && $amount<=800)
-               {
-                $plan ='STANDARD';
-               }
-               elseif($amount>=1000 && $amount<=2000)
-               {
-                $plan ='EXCLUSIVE';
-               }
-               elseif($amount>=2500 && $amount<=5000)
-               {
-                $plan ='ULTIMATE';
-               }
-               elseif($amount>=5000 && $amount<=10000)
-               {
-                $plan ='PREMIUM';
-               }
-        
-               elseif($amount>=5000)
-               {
-                $plan ='PREMIUM';
-               }
-        //   sendEmail($users->email, 'Account Activated -'.siteName(), [
-        //             'name' => $users->name,
-        //             'username' => $users->username,
-        //             'amount' => $user->amount,
-        //             'plan' => $plan,
-        //             'date' => date("D, d M Y h:i:s a", strtotime(Date("Y-m-d H:i:s"))),
-        //             'viewpage' => 'activation',
-    
-        //          ]);
+      
                  
         $notify[] = ['success', 'Deposit request Approved successfully'];
         return redirect()->back()->withNotify($notify);

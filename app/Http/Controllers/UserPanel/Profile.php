@@ -93,6 +93,62 @@ public function BankDetail()
 
     }
     
+
+
+
+
+
+ public function update(Request $request)
+    {
+        $request->validate([
+            'aadhar_no'      => 'required|digits:12',
+            'aadhar_front'   => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'aadhar_back'    => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'pancard_no'     => 'required|alpha_num|size:10',
+            'pancard_front'  => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'pancard_back'   => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        $user = Auth::user();
+
+        // Get or create KYC record
+        $kyc = KycDetail::firstOrNew(['user_id' => $user->id]);
+
+        // Update text fields
+        $kyc->aadhar_no  = $request->aadhar_no;
+        $kyc->pancard_no = $request->pancard_no;
+        $kyc->kyc_status = "Pending";
+
+        // Handle file uploads (directly into public/kyc)
+         foreach (['aadhar_front','aadhar_back','pancard_front','pancard_back'] as $file) {
+        if ($request->hasFile($file)) {
+            // Delete old file if exists
+            if (!empty($kyc->$file) && file_exists(public_path($kyc->$file))) {
+                unlink(public_path($kyc->$file));
+            }
+
+            // Store new file
+            $filename = $file.'_'.time().'_'.$user->id.'.'.$request->$file->extension();
+            $request->$file->move(public_path('kyc'), $filename);
+
+            // Save relative path
+            $kyc->$file = 'kyc/'.$filename;
+        }
+    }
+
+        $kyc->save();
+
+
+        
+            $notify[] = ['success', 'KYC details updated successfully!'];
+            return redirect()->back()->withNotify($notify);
+            
+    }
+
+
+
+
+
     public function share()
     {
     $user=Auth::user();

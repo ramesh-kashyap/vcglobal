@@ -121,11 +121,17 @@
                                                                           <div class="col-md-12">
                                                                               <div class="mb-3">
                                                                                   <label class="form-label">Enter Amount
-                                                                                      in USDT:</label>
-                                                                                  <input type="number"
-                                                                                      class="form-control input-default"
-                                                                                      placeholder="Enter Amount"
-                                                                                      name="amount" required>
+                                                                                      :</label>
+                                                                                 <input type="number"
+       class="form-control input-default"
+       placeholder="Enter Amount"
+       name="amount"
+       min="10000"
+       required>
+
+<small class="text-danger" id="amount-error" style="display:none;">
+    Amount must be at least 10000 INR
+</small>
                                                                               </div>
                                                                           </div>
                                                                       </div>
@@ -136,16 +142,16 @@
                                                                                       Network:</label>
                                                                                   <select
                                                                                       class="default-select form-control wide"
-                                                                                      name="network" id="network">
+                                                                                      name="paymentMode" >
                                                                                    
-                                                                                      <option value="USDT_TRX">
-                                                                                          USDT(TRC-20) </option>
-                                                                                      <option value="USDT_BSC">
-                                                                                          USDT(BEP-20) </option>
+                                                                                      <option value="INR">
+                                                                                          INR </option>
+                                                                                      <option value="usdtBep20">
+                                                                                          USDT </option>
                                                                                   </select>
                                                                               </div>
-                                                                              <h6 class="text-danger mx-1">Minimum
-                                                                                  Deposit is 50 USDT</h6>
+                                                                              <!-- <h6 class="text-danger mx-1">Minimum
+                                                                                  Deposit is  10000 INR </h6> -->
                                                                           </div>
                                                                       </div>
                                                                       <!-- End of deposit form content -->
@@ -268,12 +274,11 @@
 
                                                   <div class="media-body">
                                                       <span class="fs-15 d-block mb-1 text-primary">Funding Wallet:
-                                                          {{ currency() }}
-                                                          {{ number_format(Auth::user()->u_credits, 2) }}
+                                                    
                                                       </span>
-                                                      <span class="fs-15 text-black">Strategy Wallet:
-                                                          {{ currency() }}
-                                                          {{ number_format(auth::user()->u_strategy, 2) }}
+                                                      <span class="fs-15 text-black">
+                                                              {{ currency() }}
+                                                          {{ number_format(Auth::user()->u_credits, 2) }}
                                                       </span>
                                                   </div>
                                               </div>
@@ -282,12 +287,11 @@
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
-                                                      <span class="fs-15 d-block mb-1 text-primary">OPX Wallet:
-                                                          {{ number_format(Auth::user()->u_opt, 2) }}
+                                                      <span class="fs-15 d-block mb-1 text-primary">Team Business
                                                       </span>
-                                                      <span class="fs-15 text-black">Profit Wallet:
+                                                      <span class="fs-15 text-black">
                                                           {{ currency() }}
-                                                          {{ number_format(Auth::user()->u_profit, 2) }}
+                                                          {{ number_format($totalBuniess, 2) }}
                                                       </span>
                                                   </div>
                                               </div>
@@ -296,8 +300,8 @@
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
-                                                      <span class="fs-15 d-block mb-1 text-primary">OPX Coins: 0.0000
-                                                          OPX</span>
+                                                      <span class="fs-15 d-block mb-1 text-primary">Revenue Share
+                                                          </span>
                                                       <span class="fs-15 text-black">Refer Wallet: {{ currency() }}
                                                           {{ number_format(Auth::user()->u_ref, 2) }}
                                                       </span>
@@ -310,7 +314,20 @@
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
-                                                      <span class="fs-15 d-block mb-1 text-primary">Referral Income</span>
+                                                      <span class="fs-15 d-block mb-1 text-primary">Team Reveune Share</span>
+                                                      <span class="fs-15 text-black"> {{ currency() }}
+                                                          {{ number_format(Auth::user()->level_bonus->sum("comm"), 2) }}
+                                                      </span>
+                                                  </div>
+
+                                              </div>
+                                          </div>
+                                                        
+                                          <div class="col-lg-4 col-md-12 col-xxl-12">
+                                              <div class="media bgl-primary p-3 rounded align-items-center">
+
+                                                  <div class="media-body">
+                                                      <span class="fs-15 d-block mb-1 text-primary">Reward Income</span>
                                                       <span class="fs-15 text-black"> {{ currency() }}
                                                           {{ number_format(Auth::user()->level_bonus->sum("comm"), 2) }}
                                                       </span>
@@ -323,7 +340,7 @@
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
-                                                      <span class="fs-15 d-block mb-1 text-primary">Direct Referral Income</span>
+                                                      <span class="fs-15 d-block mb-1 text-primary">Referral Reveune Share</span>
                                                       <span class="fs-15 text-black"> {{ currency() }}
                                                           {{ number_format(Auth::user()->sponsorship_bonus->sum('comm'), 2) }}
                                                       </span>
@@ -336,7 +353,7 @@
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
-                                                      <span class="fs-15 d-block mb-1 text-primary">Team Business</span>
+                                                      <span class="fs-15 d-block mb-1 text-primary">Salary Income</span>
                                                       <span class="fs-15 text-black"> {{ currency() }}
                                                           {{ number_format($totalBuniess, 2) }}
                                                       </span>
@@ -551,3 +568,12 @@
             
         </script>
 
+<script>
+document.querySelector('input[name="amount"]').addEventListener('input', function() {
+    if (this.value && this.value < 10000) {
+        document.getElementById('amount-error').style.display = 'block';
+    } else {
+        document.getElementById('amount-error').style.display = 'none';
+    }
+});
+</script>

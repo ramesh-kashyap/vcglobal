@@ -25,7 +25,7 @@ class Bonus extends Controller
           $limit = $request->limit ? $request->limit : paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
-            $notes = Income::where('user_id',$user->id)->where('remarks','Referral Income')->orderBy('id', 'DESC');
+            $notes = Income::where('user_id',$user->id)->where('remarks','Referral Reveune Share')->orderBy('id', 'DESC');
            if($search <> null && $request->reset!="Reset"){
             $notes = $notes->where(function($q) use($search){
               $q->Where('rname', 'LIKE', '%' . $search . '%')
@@ -56,7 +56,7 @@ class Bonus extends Controller
           $limit = $request->limit ? $request->limit : paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
-            $notes = Income::where('user_id',$user->id)->where('remarks','Leadership Income')->orderBy('id', 'DESC');
+            $notes = Income::where('user_id',$user->id)->where('remarks','Revenue Share')->orderBy('id', 'DESC');
            if($search <> null && $request->reset!="Reset"){
             $notes = $notes->where(function($q) use($search){
               $q->Where('rname', 'LIKE', '%' . $search . '%')
@@ -119,7 +119,7 @@ class Bonus extends Controller
           $limit = $request->limit ? $request->limit : paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
-            $notes = Income::where('user_id',$user->id)->where('remarks','Gap Margin Bonus')->orderBy('id', 'DESC');
+            $notes = Income::where('user_id',$user->id)->where('remarks','Salary Income')->orderBy('id', 'DESC');
            if($search <> null && $request->reset!="Reset"){
             $notes = $notes->where(function($q) use($search){
               $q->Where('rname', 'LIKE', '%' . $search . '%')
@@ -185,7 +185,7 @@ class Bonus extends Controller
           $limit = $request->limit ? $request->limit : paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
-            $notes = Income::where('user_id',$user->id)->where('remarks','Royalty Bonus')->orderBy('id', 'DESC');
+            $notes = Income::where('user_id',$user->id)->where('remarks','Reward Income')->orderBy('id', 'DESC');
 
            if($search <> null && $request->reset!="Reset"){
             $notes = $notes->where(function($q) use($search){
@@ -219,7 +219,7 @@ class Bonus extends Controller
           $limit = $request->limit ? $request->limit :  paginationLimit();
             $status = $request->status ? $request->status : null;
             $search = $request->search ? $request->search : null;
-            $notes = Income::where('user_id',$user->id)->where('remarks','Ai Trading Profit')->orderBy('id', 'DESC');
+            $notes = Income::where('user_id',$user->id)->where('remarks','Team Reveune Share')->orderBy('id', 'DESC');
            if($search <> null && $request->reset!="Reset"){
             $notes = $notes->where(function($q) use($search){
               $q->Where('ttime', 'LIKE', '%' . $search . '%')

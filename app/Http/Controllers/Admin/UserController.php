@@ -253,6 +253,8 @@ class UserController extends Controller
     }
 
 
+
+    
     public function activate_admin_post(Request $request)
     {
 
@@ -279,35 +281,7 @@ class UserController extends Controller
             
                    $amount=  $request->amount;
                     //   $plan ='BEGINNER';
-                    if ($amount>=100 && $amount<=200) 
-                       {
-                        $plan ='BEGINNER';
-                       }
-                       elseif($amount>=400 && $amount<=800)
-                       {
-                        $plan ='STANDARD';
-                       }
-                       elseif($amount>=1000 && $amount<=2000)
-                       {
-                        $plan ='EXCLUSIVE';
-                       }
-                       elseif($amount>=2500 && $amount<=5000)
-                       {
-                        $plan ='ULTIMATE';
-                       }
-                
-                       elseif($amount>=5000 && $amount<=10000)
-                       {
-                        $plan ='PREMIUM';
-                       }
-                
-                       elseif($amount>=5000)
-                       {
-                        $plan ='PREMIUM';
-                       }
-                       
-                       
-                    //   dd($plan);
+         
                   $invest_check=Investment::where('user_id',$user->id)->where('status','!=','Decline')->where('plan',$plan)->orderBy('id','desc')->limit(1)->first();
                   $invoice = substr(str_shuffle("0123456789"), 0, 7);
                   
