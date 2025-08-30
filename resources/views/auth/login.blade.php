@@ -51,7 +51,7 @@
                             <div class="or-form py-4">
                                 <span>Or Continue With:</span>
                             </div>
-                            <div class="other-sing pb-4">
+                            <!-- <div class="other-sing pb-4">
                                 <button>
                                     <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -77,7 +77,7 @@
                                     </svg>
                                     <span>Apple</span>
                                 </button>
-                            </div>
+                            </div> -->
                             <p class="text-center">Already have an account?
                                 <a href="{{route('register')}}" class="text--base">Register</a>
                             </p>

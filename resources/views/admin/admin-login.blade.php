@@ -45,7 +45,7 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="#"><img src="{{asset('')}}user/images/logo.svg" style="
+                                        <a href="#"><img src="{{asset('')}}asset/images/logo/logo.png" style="
                                             width: 200px;
                                         " alt=""></a>
                                     </div>

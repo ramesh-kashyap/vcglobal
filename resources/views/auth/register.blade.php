@@ -22,15 +22,21 @@
                             <div class="row row-gap-4">
                                 <div class="col-12">
                                     <input type="text" name="sponsor" id="sponsor" class="form-control" value="{{ request('ref') }}" placeholder="Enter your Referral id">
-                                       <span id="sponsorNameInfo" class="information"></span>
+                                    <span id="sponsorNameInfo" class="information"></span>
                                 </div>
                                 <div class="col-12">
                                     <input type="text" name="name" class="form-control" placeholder="Enter your name*">
                                 </div>
+
+                                <div class="col-xl-12">    
+                                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number*"value="{{ old('phone') }}" maxlength="10" required>
+                                    <input type="hidden" id="country_code" name="country_code">
+                                </div>
+                              
                                 <div class="col-12">
                                     <input type="email" name="email" class="form-control" placeholder="Enter your email*">
                                 </div>
-     
+
                                 <div class="col-sm-6">
                                     <input type="password" name="password" class="form-control" placeholder="Enter password*" required>
                                 </div>
@@ -38,7 +44,7 @@
                                 <div class="col-sm-6">
                                     <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password*"
                                         required>
-                                </div>  
+                                </div>
                                 <div class="col-12">
                                     <div class="d-flex flex-wrap row-gap-4 justify-content-between">
                                         <div class="form--check">
@@ -48,12 +54,12 @@
                                                 Remember Me
                                             </label>
                                         </div>
-                                         <a href="{{route('login')}}" class="forgot-text">Login</a>
+                                        <a href="{{route('login')}}" class="forgot-text">Login</a>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                     
-                                    <div class="submit-button" >
+
+                                    <div class="submit-button">
                                         <button type="submit" class="btn btn--base-two w-100">
                                             Sign Up
                                             <i class="flaticon-arrow-upper-right"></i>
@@ -61,7 +67,7 @@
                                     </div>
                                 </div>
                             </div>
-                        
+
                         </form>
                     </div>
                 </div>
@@ -73,6 +79,25 @@
 @include('partials.notify')
 
 @include('layouts.mainsite.footer')
+<script>
+  const input = document.querySelector("#phone");
+  const iti = window.intlTelInput(input, {
+    initialCountry: "in",
+    separateDialCode: true,
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
+
+  input.addEventListener("input", function () {
+    const countryCode = iti.getSelectedCountryData().dialCode;
+    document.querySelector("#country_code").value = "+" + countryCode;
+  });
+
+  // Also set on init (in case value pre-filled)
+  document.addEventListener("DOMContentLoaded", function () {
+    const countryCode = iti.getSelectedCountryData().dialCode;
+    document.querySelector("#country_code").value = "+" + countryCode;
+  });
+</script>
 
 <script>
     $(document).ready(function() {
@@ -148,3 +173,4 @@
         getSponsorName(username);
     });
 </script>
+

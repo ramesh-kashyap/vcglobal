@@ -12,6 +12,7 @@
 	<title>{{siteName()}}</title>
 <!-- Font Awesome 6 Free -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-pVZt4fZrZjUFl2qfOsh3x5w0sCqD/s5+V7v9PoaHgO+f9NkT+bcg+ZJ+Z5t0C/0G4K3zPbWn6Fbc1w1f7pDwRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- intl-tel-input CSS -->
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{{asset('')}}asset/images/logo/favicon.ico">
@@ -19,6 +20,7 @@
 	<link rel="stylesheet" href="{{asset('')}}asset/css/bootstrap.min.css">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="{{asset('')}}asset/css/all.min.css">
+	<link rel="stylesheet" href="{{asset('')}}asset/css/intlTelInput.min.css">
 	<!-- Flat Icon -->
 	<!-- <link rel="stylesheet" href="{{asset('')}}asset/fonts/flaticon_xtrade.css"> -->
 	<!-- Fancy Box -->
@@ -59,8 +61,8 @@
 						<a href="{{route('login')}}" class="btn btn-outline--base d-none d-sm-block">
 							Log In <i class="fas fa-arrow-up" ></i>
 						</a>
-						<a href="{{route('contact-us')}}" class="btn btn--base-two d-none d-sm-block">
-							Contact Us <i class="fas fa-arrow-up-right-from-square"></i>
+						<a href="{{route('register')}}" class="btn btn--base-two d-none d-sm-block">
+							Register <i class="fas fa-arrow-up-right-from-square"></i>
 						</a>
 						<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
 							data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
@@ -85,8 +87,8 @@
 							<a href="{{route('login')}}" class="btn btn-outline--base d-sm-none">
 								Log In <i class="flaticon-arrow-upper-right"></i>
 							</a>
-							<a href="{{route('contact-us')}}" class="btn btn--base-two d-sm-none">
-								Contact Us <i class="flaticon-arrow-upper-right"></i>
+							<a href="{{route('register')}}" class="btn btn--base-two d-sm-none">
+								 Register <i class="flaticon-arrow-upper-right"></i>
 							</a>
 						</div>
 						<div class="offcanvas-body align-items-center">

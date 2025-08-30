@@ -42,8 +42,7 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <h3><a href="#">24/7 Help Center</a></h3>
-                        <p>Trade Mastery is more than a trading platform it's a gateway to the mastering the
-                            financial markets Built for traders.</p>
+                        <p>“Our 24/7 Help Center is always here for traders. Whether you need quick market insights, platform guidance, or assistance with your account.</p>
                         <a href="#" class="learn-more">Learn More <i
                                 class="flaticon-arrow-upper-right"></i></a>
                     </div>
@@ -54,8 +53,7 @@
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <h3><a href="#">Expansive Academy</a></h3>
-                        <p>Trade Mastery is more than a trading platform it's a gateway to the mastering the
-                            financial markets Built for traders.</p>
+                        <p>Expansive Academy is designed to empower traders with the knowledge and skills they need to succeed. From beginner tutorials to advanced strategies.</p>
                         <a href="#" class="learn-more">Learn More <i
                                 class="flaticon-arrow-upper-right"></i></a>
                     </div>
@@ -66,8 +64,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <h3><a href="#">Chat With Team</a></h3>
-                        <p>Trade Mastery is more than a trading platform it's a gateway to the mastering the
-                            financial markets Built for traders.</p>
+                        <p>Have questions while trading? Simply chat with our team anytime. Our experts are available to provide instant answers, clear guidance, and real-time support.</p>
                         <a href="#" class="learn-more">Learn More <i
                                 class="flaticon-arrow-upper-right"></i></a>
                     </div>
@@ -265,159 +262,7 @@
     </section>
     <!--==========================  Faq Section End  ==========================-->
     <!--==========================  Testimonial Section Start  ==========================-->
-    <section class="testimonial-section bg--black-two py-120">
-        <div class="container position-relative">
-            <div class="testimonial-shape d-none d-lg-block">
-                <img src="{{asset('')}}asset/svg/twostar.svg" alt="star">
-                <img src="{{asset('')}}asset/svg/maneyPlant.svg" alt="money Plant">
-            </div>
-            <div class="row row-gap-2">
-                <div class="col-lg-6 align-self-end">
-                    <div class="section-content">
-                        <h6 class="right-reveal">Testimonial</h6>
-                        <h2 class="mb-2 right-reveal">Our Clients Says</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6 align-self-end">
-                    <div class="section-content">
-                        <p class="right-reveal">Trade Mastery, we believe great traders aren't born they’re
-                            built through the right tools,
-                            education, and support. Our mission is simple: to empower every client with the
-                            resources they
-                            need to grow, succeed, and master.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-60">
-                <div class="col-12 position-relative bottom-reveal">
-                    <div class="testimonial-slide swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="start-client">
-                                        <img src="{{asset('')}}asset/svg/star-5.svg" alt="star">
-                                    </div>
-                                    <div class="client-body">
-                                        <img src="{{asset('')}}asset/svg/quite.svg" alt="quite">
-                                        <p class="client-text">
-                                            Trade Mastery, we believes great traders aren't born they’re built
-                                            through the rights there tools, education, and supports. Our mission
-                                            is simple to empower every client.
-                                        </p>
-                                        <div class="client-info d-flex gap-3 align-self-center">
-                                            <img src="{{asset('')}}asset/images/client/client1.png" alt="client">
-                                            <div class="text">
-                                                <h4 class="mb-2">Robert Jenkins</h4>
-                                                <p>Urban Designer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="start-client">
-                                        <img src="{{asset('')}}asset/svg/star-5.svg" alt="star">
-                                    </div>
-                                    <div class="client-body">
-                                        <img src="{{asset('')}}asset/svg/quite.svg" alt="quite">
-                                        <p class="client-text">
-                                            Trade Mastery, we believes great traders aren't born they’re built
-                                            through the rights there tools, education, and supports. Our mission
-                                            is simple to empower every client.
-                                        </p>
-                                        <div class="client-info d-flex gap-3 align-self-center">
-                                            <img src="{{asset('')}}asset/images/client/client2.png" alt="client">
-                                            <div class="text">
-                                                <h4 class="mb-2">Johanna Dach</h4>
-                                                <p>Urban Artist</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="start-client">
-                                        <img src="{{asset('')}}asset/svg/star-5.svg" alt="star">
-                                    </div>
-                                    <div class="client-body">
-                                        <img src="{{asset('')}}asset/svg/quite.svg" alt="quite">
-                                        <p class="client-text">
-                                            Trade Mastery, we believes great traders aren't born they’re built
-                                            through the rights there tools, education, and supports. Our mission
-                                            is simple to empower every client.
-                                        </p>
-                                        <div class="client-info d-flex gap-3 align-self-center">
-                                            <img src="{{asset('')}}asset/images/client/client3.png" alt="client">
-                                            <div class="text">
-                                                <h4 class="mb-2">Harvey Witting</h4>
-                                                <p>Urban Designer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="start-client">
-                                        <img src="{{asset('')}}asset/svg/star-5.svg" alt="star">
-                                    </div>
-                                    <div class="client-body">
-                                        <img src="{{asset('')}}asset/svg/quite.svg" alt="quite">
-                                        <p class="client-text">
-                                            Trade Mastery, we believes great traders aren't born they’re built
-                                            through the rights there tools, education, and supports. Our mission
-                                            is simple to empower every client.
-                                        </p>
-                                        <div class="client-info d-flex gap-3 align-self-center">
-                                            <img src="{{asset('')}}asset/images/client/client1.png" alt="client">
-                                            <div class="text">
-                                                <h4 class="mb-2">Robert Jenkins</h4>
-                                                <p>Urban Designer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <div class="start-client">
-                                        <img src="{{asset('')}}asset/svg/star-5.svg" alt="star">
-                                    </div>
-                                    <div class="client-body">
-                                        <img src="{{asset('')}}asset/svg/quite.svg" alt="quite">
-                                        <p class="client-text">
-                                            Trade Mastery, we believes great traders aren't born they’re built
-                                            through the rights there tools, education, and supports. Our mission
-                                            is simple to empower every client.
-                                        </p>
-                                        <div class="client-info d-flex gap-3 align-self-center">
-                                            <img src="{{asset('')}}asset/images/client/client2.png" alt="client">
-                                            <div class="text">
-                                                <h4 class="mb-2">Johanna Dach</h4>
-                                                <p>Urban Artist</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <div class="slider-btn">
-                        <div class="btn-slider-prev testi-prev">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </div>
-                        <div class="btn-slider-next testi-next">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+ 
     <!--==========================  Testimonial Section End  ==========================-->
     <!--==========================  Call-to-action Section Start  ==========================-->
     <section class="call-to-action-section bg--black-two">

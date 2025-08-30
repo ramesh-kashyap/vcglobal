@@ -123,34 +123,59 @@
         <style>
             .short-logo {
                 display: none;
-                /* Default hidden */
+
+            }
+
+            .shorted {
+                width: 90px;
+                height: 80px;
+                margin: 10px auto;
             }
 
             .short-logo.active {
                 display: block !important;
-                /* Show when active */
+
             }
 
             .brand-logo.active {
                 display: none !important;
-                /* Hide brand logo when short logo active */
+            }
+
+            /* ==== Mobile View ==== */
+            @media (max-width: 768px) {
+                .brand-logo {
+                    display: none !important;
+                    /* Mobile me hide */
+                }
+
+                .short-logo {
+                    display: block !important;
+                    /* Mobile me show */
+                }
+
+                .short-logo img {
+                    width: 60px;
+                    /* Mobile size chhota */
+                    height: 50px;
+                    margin: 5px auto;
+                }
             }
         </style>
+
         <div class="nav-header">
-            <a href="{{asset('')}}" class="brand-logo">
-                <img src="{{asset('')}}asset/images/logo/logo.png" style="    width: 233px;
+            <a href="{{route('admin.dashboard')}}" class="brand-logo">
+                <img src="{{asset('')}}asset/images/logo/logo.png" style="    width: 210px;
                 margin: 0px auto;" alt="" />
 
             </a>
-            <a href="{{asset('')}}" class="short-logo">
-                <img src="{{asset('')}}asset/images/logo/favicon.ico" style="width: 90px;height:80px;
-                margin: 14px auto;" alt="" />
+            <a href="{{route('admin.dashboard')}}" class="short-logo">
+                <img src="{{asset('')}}asset/images/logo/favicon.ico" style="" class="shorted" alt="" />
 
             </a>
             <div class="nav-control">
                 <div class="hamburger">
                     <span class="line"></span><span class="line"></span><span class="line"></span>
-                </div>
+                </div>  
             </div>
         </div>
         <!--**********************************

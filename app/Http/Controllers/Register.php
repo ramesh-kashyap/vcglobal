@@ -51,10 +51,10 @@ class Register extends Controller
                 'email' => 'required',
                 'name' => 'required',
                 'password' => 'required|confirmed|min:5',
-                // 'country_code' => 'required',
+                'country_code' => 'required',
 
                 'sponsor' => 'required|exists:users,username',
-                // 'phone' => 'required|numeric|min:10'
+                'phone' => 'required|numeric|min:10'
 
             ]);
 
@@ -78,14 +78,14 @@ class Register extends Controller
             $totalID++;
             // $username = substr(time(), 4) . $totalID;
 
-            $username = "EV" . substr(time(), -2) . substr(rand(), -2) . substr(mt_rand(), -2);
+            $username = "VC" . substr(time(), -2) . substr(rand(), -2) . substr(mt_rand(), -2);
             $tpassword = substr(time(), -2) . substr(rand(), -2) . substr(mt_rand(), -1);
             $post_array  = $request->all();
             //  
 
             $data['name'] = $post_array['name'];
-            // $data['phone'] = $post_array['phone'];
-            // $data['country_code'] = $post_array['country_code'];
+            $data['phone'] = $post_array['phone'];
+            $data['country_code'] = $post_array['country_code'];
 
 
             $data['username'] = $username;

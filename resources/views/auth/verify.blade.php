@@ -10,12 +10,12 @@
                             {{ csrf_field() }}
 
                             <div class="formBl">
-                                <div class="logo invisLink mb-4">
+                                <div class="logo invisLink mb-4 text-center">
                                     <a href="{{ asset('') }}"></a>
                                     <img src="{{ asset('') }}asset/images/logo/logo.png" alt="" class="img-fluid" style="max-height: 60px;">
                                 </div>
 
-                                <span class="title h4 d-block mb-2 fw-bold " style="color: hsl(164.41deg 76.62% 45.29%);">Register Successfully</span>
+                                <span class="title h4 d-block mb-2 fw-bold text-center" style="color: hsl(164.41deg 76.62% 45.29%);">Register Successfully</span>
                                 <span class="sub-title d-block mb-4 text-muted small">
                                     In case you have 2-FA security enabled, please, use Google Authenticator
                                     code instead of password.

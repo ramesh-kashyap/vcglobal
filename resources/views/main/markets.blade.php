@@ -188,7 +188,7 @@
                                         Today</span>
                                     <h2 class="mb-4 right-reveal">Learn, Trade, And Grow With Trusted Tools And
                                         Signals.</h2>
-                                    <a href="" class="btn btn--base-two right-reveal">
+                                    <a href="{{route('register')}}" class="btn btn--base-two right-reveal">
                                         Register Now <i class="fas fa-arrow-up" ></i>
                                     </a>
                                 </div>

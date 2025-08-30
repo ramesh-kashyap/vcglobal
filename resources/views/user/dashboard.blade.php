@@ -7,7 +7,7 @@
           <div class="row">
               
                  <div class="col-xl-12 col-xxl-12 col-sm-12">
-               <marquee onmouseover="this.stop();" style="    padding: 10px;" onmouseout="this.start();" class="bgl-primary"><b>Welcome to MegaBot, your premier AI-driven trading platform designed to revolutionize your trading experience. With over a decade of expertise, MegaBot offers unparalleled accuracy and efficiency in global markets</b></marquee>
+               <marquee onmouseover="this.stop();" style="    padding: 10px;" onmouseout="this.start();" class="bgl-primary"><b>Welcome to VcGLOBAL, your premier AI-driven trading platform designed to revolutionize your trading experience. With over a decade of expertise, VcGLOBAL offers unparalleled accuracy and efficiency in global markets</b></marquee>
                
               
                </div>
@@ -268,7 +268,7 @@ Bank Details
                                           </div>
                                       </div>
                                       <div class="row">
-                                          <div class="col-lg-4 col-md-6 col-xxl-6 mb-3">
+                                          <div class="col-lg-4 col-md-6 col-xxl-6 mb-2">
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
@@ -283,7 +283,7 @@ Bank Details
                                                   </div>
                                               </div>
                                           </div>
-                                          <div class="col-lg-4 col-md-6 col-xxl-6 mb-3">
+                                          <div class="col-lg-4 col-md-6 col-xxl-6 mb-2">
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
@@ -296,7 +296,7 @@ Bank Details
                                                   </div>
                                               </div>
                                           </div>
-                                          <div class="col-lg-4 col-md-12 col-xxl-12">
+                                          <div class="col-lg-4 col-md-12 col-xxl-12 mb-2">
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
@@ -310,7 +310,7 @@ Bank Details
                                               </div>
                                           </div>
                                           
-                                          <div class="col-lg-4 col-md-12 col-xxl-12">
+                                          <div class="col-lg-4 col-md-12 col-xxl-12 mb-2">
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
@@ -323,7 +323,7 @@ Bank Details
                                               </div>
                                           </div>
                                                         
-                                          <div class="col-lg-4 col-md-12 col-xxl-12">
+                                          <div class="col-lg-4 col-md-12 col-xxl-12 mb-2">
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
@@ -336,7 +336,7 @@ Bank Details
                                               </div>
                                           </div>
                                           
-                                          <div class="col-lg-4 col-md-12 col-xxl-12">
+                                          <div class="col-lg-4 col-md-12 col-xxl-12 mb-2">
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">
@@ -349,7 +349,7 @@ Bank Details
                                               </div>
                                           </div>
                                           
-                                             <div class="col-lg-4 col-md-12 col-xxl-12">
+                                             <div class="col-lg-4 col-md-12 col-xxl-12 mb-2">
                                               <div class="media bgl-primary p-3 rounded align-items-center">
 
                                                   <div class="media-body">

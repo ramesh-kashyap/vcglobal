@@ -22861,7 +22861,9 @@ code {
   color: #000 !important; }
 
 .media img {
-  border-radius: 3px; }
+  border-radius: 3px;
+  width: 190px;
+}
 
 .vertical-card__menu:hover {
   box-shadow: none; }

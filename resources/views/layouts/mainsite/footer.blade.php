@@ -158,6 +158,7 @@
     <script src="{{asset('')}}asset/js/fancybox.umd.js"></script>
     <!-- Odometer js -->
     <script src="{{asset('')}}asset/js/odometer.min.js"></script>
+    <script src="{{asset('')}}asset/js/intlTelInput.min.js"></script>
 
     <!-- main js -->
     <script src="{{asset('')}}asset/js/main.js"></script>
